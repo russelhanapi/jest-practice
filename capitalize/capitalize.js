@@ -1,12 +1,14 @@
 export function capitalize(str) {
+  // If string is empty, return an empty string
   if (str.length === 0) return '';
 
-  let firstNonSpaceIndex = 0;
-  while (firstNonSpaceIndex < str.length && str[firstNonSpaceIndex] === ' ') {
-    firstNonSpaceIndex++;
+  let firstCharIndex = 0; // will contain the index of the first character
+  while (firstCharIndex < str.length && str[firstCharIndex] === ' ') {
+    firstCharIndex++;
   }
 
-  if (firstNonSpaceIndex === str.length) return str;
+  // If str contains only spaces, return it as is
+  if (firstCharIndex === str.length) return str;
 
-  return str.slice(0, firstNonSpaceIndex) + str[firstNonSpaceIndex].toUpperCase() + str.slice(firstNonSpaceIndex + 1);
+  return str.slice(0, firstCharIndex) + str[firstCharIndex].toUpperCase() + str.slice(firstCharIndex + 1);
 }
