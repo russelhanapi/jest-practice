@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for calculator/calculator.js</title>
+    <title>Code coverage report for ceasarCipher/ceasarCipher.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">calculator</a> calculator.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">ceasarCipher</a> ceasarCipher.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>10/10</span>
             </div>
         
             
@@ -89,57 +89,63 @@
 <a name='L24'></a><a href='#L24'>24</a>
 <a name='L25'></a><a href='#L25'>25</a>
 <a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">45x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">45x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">45x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const calculator = {
-  add(a, b) {
-    validateOperands(a, b);
-    return a + b;
-  },
-  subtract(a, b) {
-    validateOperands(a, b);
-    return a - b;
-  },
-  multiply(a, b) {
-    validateOperands(a, b);
-    return a * b;
-  },
-  divide(a, b) {
-    validateOperands(a, b);
-    if (b === 0) throw new Error('Cannot divide by zero');
-    return a / b;
-  },
-};
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export function caesarCipher(str, shift) {
+  let result = '';
 &nbsp;
-// Helper function for validating if operands are of type number
-function validateOperands(a, b) {
-  if (typeof a !== 'number' || typeof b !== 'number') {
-    throw new Error('Operands must be numbers');
+  for (let i = 0; i &lt; str.length; i++) {
+    let char = str[i];
+    // charCodeAt -&gt; Converts a Character to a Number based on ASCII
+    let code = str.charCodeAt(i);
+&nbsp;
+    // Uppercase letters (A-Z)
+    if (code &gt;= 65 &amp;&amp; code &lt;= 90) {
+      // fromCharCode -&gt; Converts an ASCII to a character
+      // Shift the character and wrap around if necessary using modular arithmetic
+      result += String.fromCharCode(((((code - 65 + shift) % 26) + 26) % 26) + 65);
+&nbsp;
+      // Lowercase letters (a-z)
+    } else if (code &gt;= 97 &amp;&amp; code &lt;= 122) {
+      // Shift the character and wrap around if necessary
+      result += String.fromCharCode(((((code - 97 + shift) % 26) + 26) % 26) + 97);
+&nbsp;
+      // Non-alphabet characters (e.g., space, punctuation)
+    } else {
+      // Keep it unchanged
+      result += char;
+    }
   }
+&nbsp;
+  return result;
 }
 &nbsp;</pre></td></tr></table></pre>
 

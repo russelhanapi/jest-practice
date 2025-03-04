@@ -1,4 +1,4 @@
-import { caesarCipher } from './caesarCipher';
+import { caesarCipher } from './ceasarCipher';
 
 test('shifts a letter forward by a given number', () => {
   expect(caesarCipher('abc', 3)).toBe('def');
